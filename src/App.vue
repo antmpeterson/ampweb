@@ -10,8 +10,8 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto">
             <b-nav-item right v-on:click="goto('about')">About</b-nav-item>
-            <b-nav-item right v-on:click="gotop('projects')">Projects</b-nav-item>
-          <b-nav-item right v-on:click="gotoc('contact')">Contact Me</b-nav-item>
+            <b-nav-item right v-on:click="goto('caro-contain')">Projects</b-nav-item>
+          <b-nav-item right v-on:click="goto('contact')">Contact Me</b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
@@ -36,27 +36,28 @@ export default {
     },
     methods: {
       goto(page){
-        $('html, body').animate({
-            scrollTop: $("#about").offset().top
-        }, 1000);
-      }
-   
-      , gotoh(page){
-        $('html, body').animate({
-            scrollTop: $("#home").offset().top
-        }, 1000);
-      }
-      
-      , gotop(page){
-        $('html, body').animate({
-            scrollTop: $("#projects").offset().top
-        }, 1000);
-      }
-      
-      , gotoc(page){
-        $('html, body').animate({
-            scrollTop: $("#contact").offset().top
-        }, 1000);
+        switch(page){
+          case 'home':
+            $('html, body').animate({
+                scrollTop: $("#home").offset().top
+            }, 1000);
+            break;
+          case 'about':
+            $('html, body').animate({
+                scrollTop: $("#about").offset().top
+            }, 1000);
+            break;
+          case 'caro-contain':
+            $('html, body').animate({
+                scrollTop: $("#caro-contain").offset().top
+            }, 1000);
+            break;
+          case 'contact':
+            $('html, body').animate({
+                scrollTop: $("#contact").offset().top
+            }, 1000);
+            break;
+        }
       }
       
   }
@@ -119,6 +120,9 @@ a:hover{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+h2 {
+  font-size: 32px !important; 
 }
 </style>
 
